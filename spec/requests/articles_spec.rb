@@ -24,11 +24,12 @@ RSpec.describe 'Articles API' do
     Article.delete_all
   end
 
-  describe 'GET /articles' do
-    it 'lists all articles' do
-      get '/articles'
+  describe 'GET /articles' do #
+    it 'lists all articles' do # it is a method defined by Rspec - rails
+      get '/articles' # get is a method defined by Rspec - rails
 
-      expect(response).to be_success
+      expect(response).to be_success  #'be_success' is a "Matcher" for 200 HTTP response
+                                      # returns true if get '/articles' responds with 200 
 
       articles_response = JSON.parse(response.body)
       expect(articles_response.length).to eq(articles.count)
